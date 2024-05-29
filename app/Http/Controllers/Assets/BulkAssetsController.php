@@ -13,7 +13,10 @@ use App\Models\Setting;
 use App\View\Label;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\AssetCheckoutRequest;
 use App\Models\CustomField;
@@ -94,6 +97,11 @@ class BulkAssetsController extends Controller
         $assets = Asset::with('assignedTo', 'location', 'model')->whereIn('assets.id', $asset_ids);
 
         $assets = $assets->get();
+
+        if ($assets->isEmpty()) {
+            Log::debug('No assets were found for the provided IDs', ['ids' => $asset_ids]);
+            return redirect()->back()->with('error', trans('admin/hardware/message.update.assets_do_not_exist_or_are_invalid'));
+        }
 
         $models = $assets->unique('model_id');
         $modelNames = [];
@@ -183,7 +191,6 @@ class BulkAssetsController extends Controller
      * Save bulk edits
      *
      * @author [A. Gianotto] [<snipe@snipe.net>]
-     * @return Redirect
      * @internal param array $assets
      * @since [v2.0]
      */
@@ -208,7 +215,7 @@ class BulkAssetsController extends Controller
         }
 
 
-        $assets = Asset::whereIn('id', array_keys($request->input('ids')))->get();
+        $assets = Asset::whereIn('id', $request->input('ids'))->get();
 
 
 
@@ -373,28 +380,30 @@ class BulkAssetsController extends Controller
                     foreach ($asset->model->fieldset->fields as $field) {
 
                         if ((array_key_exists($field->db_column, $this->update_array)) && ($field->field_encrypted == '1')) {
-                            $decrypted_old = Helper::gracefulDecrypt($field, $asset->{$field->db_column});
+                            if (Gate::allows('admin')) {
+                                $decrypted_old = Helper::gracefulDecrypt($field, $asset->{$field->db_column});
 
-                            /*
-                             * Check if the decrypted existing value is different from one we just submitted
-                             * and if not, pull it out of the object since it shouldn't really be updating at all.
-                             * If we don't do this, it will try to re-encrypt it, and the same value encrypted two
-                             * different times will have different values, so it will *look* like it was updated
-                             * but it wasn't.
-                             */
-                            if ($decrypted_old != $this->update_array[$field->db_column]) {
-                                $asset->{$field->db_column} = \Crypt::encrypt($this->update_array[$field->db_column]);
-                            } else {
                                 /*
-                                 * Remove the encrypted custom field from the update_array, since nothing changed
+                                 * Check if the decrypted existing value is different from one we just submitted
+                                 * and if not, pull it out of the object since it shouldn't really be updating at all.
+                                 * If we don't do this, it will try to re-encrypt it, and the same value encrypted two
+                                 * different times will have different values, so it will *look* like it was updated
+                                 * but it wasn't.
                                  */
-                                unset($this->update_array[$field->db_column]);
-                                unset($asset->{$field->db_column});
-                            }
+                                if ($decrypted_old != $this->update_array[$field->db_column]) {
+                                    $asset->{$field->db_column} = Crypt::encrypt($this->update_array[$field->db_column]);
+                                } else {
+                                    /*
+                                     * Remove the encrypted custom field from the update_array, since nothing changed
+                                     */
+                                    unset($this->update_array[$field->db_column]);
+                                    unset($asset->{$field->db_column});
+                                }
 
-                            /*
-                             * These custom fields aren't encrypted, just carry on as usual
-                             */
+                                /*
+                                 * These custom fields aren't encrypted, just carry on as usual
+                                 */
+                            }
                         } else {
 
                             if ((array_key_exists($field->db_column, $this->update_array)) && ($asset->{$field->db_column} != $this->update_array[$field->db_column])) {

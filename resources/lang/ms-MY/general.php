@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Aksesori',
     'activated'			    => 'Diaktifkan',
     'accepted_date'         => 'Date Accepted',
@@ -175,7 +176,7 @@ return [
     'last_name'             => 'Nama Keluarga',
     'license'				=> 'Lesen',
     'license_report'        => 'Laporan Lesen',
-    'licenses_available'	=> 'Lesen Yang Ada',
+    'licenses_available'	=> 'Licenses available',
     'licenses'				=> 'Lesen',
     'list_all'				=> 'Senaraikan Semua',
     'loading'				=> 'Loading... please wait....',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'New Password',
     'next'					=> 'Seterusnya',
     'next_audit_date'		=> 'Tarikh Audit Seterusnya',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'No email address associated with this user',
     'last_audit'		    => 'Audit lepas',
     'new'					=> 'baru!',
     'no_depreciation'		=> 'Tiada Susut Nilai',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'Select All',
     'search'				=> 'Carian',
     'select_category'       => 'Pilih kategori',
+    'select_datasource' => 'Select a Datasource',
     'select_department'     => 'Pilih Jabatan',
     'select_depreciation'	=> 'Pilih Jenis Susutnilai',
     'select_location'		=> 'Pilih Lokasi',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'Pengguna',
     'accepted'			    => 'diterima',
     'declined'			    => 'menurun',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Unassigned',
     'unaccepted_asset_report' => 'Aset Tidak Diterima',
     'users'                 => 'Pengguna',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'Sesi borang anda telah tamat tempoh. Sila cuba lagi.',
     'login_enabled'         => 'Login Enabled',
     'audit_due'             => 'Due for Audit',
+    'audit_due_days'        => 'Assets Due for Audit Within :days Day|Assets Due for Audit Within :days Days',
+    'checkin_due'           => 'Due for Checkin',
+    'checkin_overdue'       => 'Overdue for Checkin',
+    'checkin_due_days'      => 'Assets Due for Checkin Within :days Day|Assets Due for Checkin Within :days Days',
     'audit_overdue'         => 'Overdue for Audit',
     'accept'                => 'Accept :asset',
     'i_accept'              => 'I accept',
@@ -505,6 +515,9 @@ return [
     'or' => 'or',
     'url'                   => 'URL',
     'edit_fieldset' => 'Edit fieldset fields and options',
+    'permission_denied_superuser_demo' => 'Permission denied. You cannot update user information for superadmins on the demo.',
+    'pwd_reset_not_sent' => 'User is not activated, is LDAP synced, or does not have an email address',
+    'error_sending_email' => 'Error sending email',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'There are no requestable assets or asset models.',
+
+    'countable' => [
+        'accessories'  => ':count Accessory|:count Accessories',
+        'assets'  => ':count Asset|:count Assets',
+        'licenses'  => ':count License|:count Licenses',
+        'license_seats'  => ':count License Seat|:count License Seats',
+        'consumables'  => ':count Consumable|:count Consumables',
+        'components'  => ':count Component|:count Components',
+    ]
 
 ];

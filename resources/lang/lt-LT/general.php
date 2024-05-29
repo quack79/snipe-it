@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Įrangos',
     'activated'			    => 'Aktyvuota',
     'accepted_date'         => 'Priėmimo data',
@@ -175,7 +176,7 @@ return [
     'last_name'             => 'Pavardė',
     'license'				=> 'Licenzija',
     'license_report'        => 'Licenzijų ataskaitą',
-    'licenses_available'	=> 'laisvos licenzijos',
+    'licenses_available'	=> 'Licenses available',
     'licenses'				=> 'Licenzijos',
     'list_all'				=> 'Parodyti viską',
     'loading'				=> 'Kraunama... Kantrybės....',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'Naujas slaptažodis',
     'next'					=> 'Kitas',
     'next_audit_date'		=> 'Kito audito data',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'No email address associated with this user',
     'last_audit'		    => 'Paskutinis auditas',
     'new'					=> 'naujas!',
     'no_depreciation'		=> 'Nėra nusidėvėjimo',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'Pažymėti viską',
     'search'				=> 'Ieškoti',
     'select_category'       => 'Pasirinkite kategoriją',
+    'select_datasource' => 'Select a Datasource',
     'select_department'     => 'Pasirinkite skyrių',
     'select_depreciation'	=> 'Pasirinkti nusidėvėjimo metodą',
     'select_location'		=> 'Pasirinkti vietovę',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'Naudotojas',
     'accepted'			    => 'priimta',
     'declined'			    => 'nepriimta',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Nepriskirta',
     'unaccepted_asset_report' => 'Nepriimta įranga',
     'users'                 => 'Naudotojai',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'Jūsų formos sesija pasibaigė. Prašau, pabandykite dar kartą.',
     'login_enabled'         => 'Prisijungimas įjungtas',
     'audit_due'             => 'Laikas auditavimui',
+    'audit_due_days'        => 'Assets Due for Audit Within :days Day|Assets Due for Audit Within :days Days',
+    'checkin_due'           => 'Due for Checkin',
+    'checkin_overdue'       => 'Overdue for Checkin',
+    'checkin_due_days'      => 'Assets Due for Checkin Within :days Day|Assets Due for Checkin Within :days Days',
     'audit_overdue'         => 'Audito laikas praėjęs',
     'accept'                => 'Patvirtinti :asset',
     'i_accept'              => 'Aš sutinku',
@@ -505,6 +515,9 @@ return [
     'or' => 'or',
     'url'                   => 'URL',
     'edit_fieldset' => 'Edit fieldset fields and options',
+    'permission_denied_superuser_demo' => 'Permission denied. You cannot update user information for superadmins on the demo.',
+    'pwd_reset_not_sent' => 'User is not activated, is LDAP synced, or does not have an email address',
+    'error_sending_email' => 'Error sending email',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'There are no requestable assets or asset models.',
+
+    'countable' => [
+        'accessories'  => ':count Accessory|:count Accessories',
+        'assets'  => ':count Asset|:count Assets',
+        'licenses'  => ':count License|:count Licenses',
+        'license_seats'  => ':count License Seat|:count License Seats',
+        'consumables'  => ':count Consumable|:count Consumables',
+        'components'  => ':count Component|:count Components',
+    ]
 
 ];

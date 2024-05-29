@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Аксессуары',
     'activated'			    => 'Активно',
     'accepted_date'         => 'Дата принятия',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'Новый пароль',
     'next'					=> 'Далее',
     'next_audit_date'		=> 'Следующая дата аудита',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'Нет адреса электронной почты, связанные с этим пользователем',
     'last_audit'		    => 'Последний аудит',
     'new'					=> 'новое!',
     'no_depreciation'		=> 'Нет аммортизации',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'Выбрать все',
     'search'				=> 'Поиск',
     'select_category'       => 'Выберите категорию',
+    'select_datasource' => 'Выберите источник данных',
     'select_department'     => 'Выбрать департамент',
     'select_depreciation'	=> 'Выберите тип амортизации',
     'select_location'		=> 'Выберите местоположение',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'Пользователь',
     'accepted'			    => 'принято',
     'declined'			    => 'отменено',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Не назначено',
     'unaccepted_asset_report' => 'Непринятые активы',
     'users'                 => 'Пользователи',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'Время вашей сессии истекло. Пожалуйста, войдите снова.',
     'login_enabled'         => 'Вход разрешен',
     'audit_due'             => 'Ожидает аудита',
+    'audit_due_days'        => 'Активы, подлежащие аудиту в течение :days дней|Срок сдачи активов в течение :days дней',
+    'checkin_due'           => 'Срок сдачи чека',
+    'checkin_overdue'       => 'Просрочено для чекина',
+    'checkin_due_days'      => 'Срок действия активов зачисления в течение :days дней|Активы должны быть зачислены в течение :days дней',
     'audit_overdue'         => 'Проверка просрочена',
     'accept'                => 'Принять :asset',
     'i_accept'              => 'Принимаю',
@@ -505,6 +515,9 @@ return [
     'or' => 'или',
     'url'                   => 'Адрес',
     'edit_fieldset' => 'Редактировать поля и параметры набора полей',
+    'permission_denied_superuser_demo' => 'В разрешении отказано. Вы не можете обновить информацию пользователя для суперадминов в демо.',
+    'pwd_reset_not_sent' => 'Пользователь не активирован, синхронизирован LDAP или не имеет адреса электронной почты',
+    'error_sending_email' => 'Ошибка при отправке письма',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'Нет требуемых активов или моделей активов.',
+
+    'countable' => [
+        'accessories'  => ':count Аксессуары|:count Аксессуаров',
+        'assets'  => ':count Актива|:count Активов',
+        'licenses'  => ':count лицензия|:count лицензий',
+        'license_seats'  => ':count лицензия на место|:count мест',
+        'consumables'  => ':count расходный материал|:count расходников',
+        'components'  => ':count компонент|:count компонентов',
+    ]
 
 ];

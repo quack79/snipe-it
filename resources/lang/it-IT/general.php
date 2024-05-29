@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Accessori',
     'activated'			    => 'Attivato',
     'accepted_date'         => 'Accettato Il',
@@ -175,7 +176,7 @@ return [
     'last_name'             => 'Cognome',
     'license'				=> 'Licenza',
     'license_report'        => 'Report Licenze',
-    'licenses_available'	=> 'licenze disponibili',
+    'licenses_available'	=> 'Licenze disponibili',
     'licenses'				=> 'Licenze',
     'list_all'				=> 'Visualizza Tutti',
     'loading'				=> 'Caricamento... attendere prego....',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'Nuova password',
     'next'					=> 'Successivo',
     'next_audit_date'		=> 'Prossima data di controllo',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'Nessun indirizzo email associato a questo utente',
     'last_audit'		    => 'Ultimo Controllo Inventario',
     'new'					=> 'nuovo!',
     'no_depreciation'		=> 'Nessuna Svalutazione',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'Seleziona tutto',
     'search'				=> 'Cerca',
     'select_category'       => 'Seleziona una categoria',
+    'select_datasource' => 'Seleziona una Origine Dati',
     'select_department'     => 'Seleziona un Reparto',
     'select_depreciation'	=> 'Seleziona un tipo di Svalutazione',
     'select_location'		=> 'Seleziona un Luogo',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'Utente',
     'accepted'			    => 'accettato',
     'declined'			    => 'rifiutato',
+    'declined_note'         => 'Note Rifiutate',
     'unassigned'            => 'Non assegnato',
     'unaccepted_asset_report' => 'Beni non accettati',
     'users'                 => 'Utenti',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'La sessione del modulo è scaduta. Riprova.',
     'login_enabled'         => 'Login Abilitato',
     'audit_due'             => 'In scadenza per Controllo Inventario',
+    'audit_due_days'        => 'Bene da inventariare entro :days giorni|Beni da inventariare entro :days giorni',
+    'checkin_due'           => 'Scadenza per la restituzione',
+    'checkin_overdue'       => 'Oltre la scadenza per restituzione',
+    'checkin_due_days'      => 'Check-in del bene da effettuare entro :days giorno|Check-in del bene da effettuare entro :days giorni',
     'audit_overdue'         => 'Scaduto per Controllo Inventario',
     'accept'                => 'Accetta :asset',
     'i_accept'              => 'Accetto',
@@ -505,6 +515,9 @@ return [
     'or' => 'o',
     'url'                   => 'URL',
     'edit_fieldset' => 'Modifica campi e opzioni',
+    'permission_denied_superuser_demo' => 'Permesso negato. Impossibile aggiornare le informazioni utente per i superadmin sulla demo.',
+    'pwd_reset_not_sent' => 'L\'utente non è attivato, è sincronizzato con LDAP o non ha un indirizzo email',
+    'error_sending_email' => 'Errore nell\'invio dell\'email',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'Non ci sono asset o modelli di asset richiesti.',
+
+    'countable' => [
+        'accessories'  => ':count Accessorio|:count Accessori',
+        'assets'  => ':count Bene|:count Beni',
+        'licenses'  => ':count Licenza|:count Licenze',
+        'license_seats'  => ':count Disponibilità Licenza|:count Disponibilità Licenza',
+        'consumables'  => ':count Consumabile|:count Consumabili',
+        'components'  => ':count Componente|:count Componenti',
+    ]
 
 ];

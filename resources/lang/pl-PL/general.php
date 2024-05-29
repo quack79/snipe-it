@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Akcesoria',
     'activated'			    => 'Aktywowana',
     'accepted_date'         => 'Data akceptacji',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'Nowe hasło',
     'next'					=> 'Następny',
     'next_audit_date'		=> 'Data następnej inspekcji',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'Brak adresu e-mail skojarzonego z tym użytkownikiem',
     'last_audit'		    => 'Ostatnia inspekcja',
     'new'					=> 'nowy!',
     'no_depreciation'		=> 'Nie Amortyzowany',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'Zaznacz wszystko',
     'search'				=> 'Wyszukaj',
     'select_category'       => 'Wybierz kategorię',
+    'select_datasource' => 'Wybierz źródło danych',
     'select_department'     => 'Wybierz departament',
     'select_depreciation'	=> 'Wybierz rodzaj amortyzacji',
     'select_location'		=> 'Wybierz lokalizację',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'Użytkownik',
     'accepted'			    => 'zatwierdzone',
     'declined'			    => 'odrzucony',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Nieprzypisane',
     'unaccepted_asset_report' => 'Aktywa niezatwierdzone',
     'users'                 => 'Użytkownicy',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'Czas trwania sesji upłynął. Spróbuj ponownie.',
     'login_enabled'         => 'Logowanie włączone',
     'audit_due'             => 'Termin przeprowadzenia audytu',
+    'audit_due_days'        => 'Należności z tytułu Audytu w ciągu :days Dnia|Należne aktywa do audytu w ciągu :days',
+    'checkin_due'           => 'Należne za Checkin',
+    'checkin_overdue'       => 'Zaległe za odprawę',
+    'checkin_due_days'      => 'Należne aktywa do Checkin W ciągu :days Day|Aktywa do Checkin w ciągu :days',
     'audit_overdue'         => 'Zaległe z tytułu audytu',
     'accept'                => 'Zaakceptuj :asset',
     'i_accept'              => 'Akceptuję',
@@ -505,6 +515,9 @@ return [
     'or' => 'lub',
     'url'                   => 'Adres WWW',
     'edit_fieldset' => 'Edytuj pola i opcje zestawu pól',
+    'permission_denied_superuser_demo' => 'Odmowa uprawnień. Nie można zaktualizować informacji użytkownika dla superadminów na demo.',
+    'pwd_reset_not_sent' => 'Użytkownik nie jest aktywny, jest zsynchronizowany z LDAP lub nie posiada adresu e-mail',
+    'error_sending_email' => 'Błąd podczas wysyłania wiadomości e-mail',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'Brak żądanych aktywów lub modeli aktywów.',
+
+    'countable' => [
+        'accessories'  => ':count Akcesoria|:count Akcesoria',
+        'assets'  => ':count aktywów|:count aktywów',
+        'licenses'  => ':count licencja|:count licencje',
+        'license_seats'  => ':count Licencja Siedzenia|:count Licencja',
+        'consumables'  => ':count Materiał|:count Materiałów|:count Materiałów',
+        'components'  => ':count Składnik|:count Składniki',
+    ]
 
 ];

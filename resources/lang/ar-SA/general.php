@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'ملحقات',
     'activated'			    => 'مفعل',
     'accepted_date'         => 'تم تخزين التاريخ',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'كلمة المرور الجديدة',
     'next'					=> 'التالى',
     'next_audit_date'		=> 'تاريخ التدقيق التالي',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'لا يوجد عنوان بريد إلكتروني مرتبط بهذا المستخدم',
     'last_audit'		    => 'آخر مراجعة',
     'new'					=> 'الجديد!',
     'no_depreciation'		=> 'لا يوجد إستهلاك',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'اختر الكل',
     'search'				=> 'بحث',
     'select_category'       => 'اختر تصنيف',
+    'select_datasource' => 'حدد سجل البيانات',
     'select_department'     => 'حدد قسم',
     'select_depreciation'	=> 'حدد نوع الاستهلاك',
     'select_location'		=> 'حدد موقعا',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'المستخدم',
     'accepted'			    => 'قبلت',
     'declined'			    => 'رفض',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'غير مسند',
     'unaccepted_asset_report' => 'الأصول غير المقبولة',
     'users'                 => 'المستخدمين',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'انتهت صلاحية جلسة النموذج. حاول مرة اخرى.',
     'login_enabled'         => 'تسجيل الدخول مفعل',
     'audit_due'             => 'الواجب مراجعته',
+    'audit_due_days'        => 'الأصول المستحقة للمراجعة خلال :أيام الأصول اليومية المستحقة للمراجعة خلال :أيام',
+    'checkin_due'           => 'من المقرر تسجيل الدخول',
+    'checkin_overdue'       => 'تأخر في تسجيل الدخول',
+    'checkin_due_days'      => 'الأصول المستحقة للتسجيل في غضون :أيام الأصول اليومية المستحقة للتسجيل في غضون :أيام',
     'audit_overdue'         => 'مراجعة الحسابات المتأخرة',
     'accept'                => 'قبول :asset',
     'i_accept'              => 'قبول',
@@ -505,6 +515,9 @@ return [
     'or' => 'أو',
     'url'                   => 'URL',
     'edit_fieldset' => 'تحرير حقول مجموعة الحقول والخيارات',
+    'permission_denied_superuser_demo' => 'تم رفض الإذن. لا يمكنك تحديث معلومات المستخدم للمديرين الخارقين في العرض التجريبي.',
+    'pwd_reset_not_sent' => 'المستخدم غير مفعل، أو مزامنة LDAP أو ليس لديه عنوان بريد إلكتروني',
+    'error_sending_email' => 'خطأ في إرسال البريد الإلكتروني',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'لا توجد أصول أو نماذج للأصول التي يمكن طلبها.',
+
+    'countable' => [
+        'accessories'  => ':count ملحقات :count ملحقات',
+        'assets'  => ':count أصول :count أصول',
+        'licenses'  => ':count ترخيص :count تراخيص',
+        'license_seats'  => ':count مقاعد الرخصة<unk> :count مقاعد الرخص',
+        'consumables'  => ':count مستهلكة<unk> :count مستهلك',
+        'components'  => ':count مكون<unk> :count مكونات',
+    ]
 
 ];

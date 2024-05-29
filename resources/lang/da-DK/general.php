@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Tilbehør',
     'activated'			    => 'Aktiveret',
     'accepted_date'         => 'Dato accepteret',
@@ -201,6 +202,9 @@ return [
     'new_password'          => 'Ny adgangskode',
     'next'					=> 'Næste',
     'next_audit_date'		=> 'Næste revisionsdato',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
+    'no_email'              => 'Ingen e-mailadresse tilknyttet denne bruger',
     'last_audit'		    => 'Seneste revision',
     'new'					=> 'ny!',
     'no_depreciation'		=> 'Ingen Afskrivning',
@@ -243,6 +247,7 @@ return [
     'select_all'            => 'Vælg alle',
     'search'				=> 'Søg',
     'select_category'       => 'Vælg en kategori',
+    'select_datasource' => 'Vælg en datasource',
     'select_department'     => 'Vælg en afdeling',
     'select_depreciation'	=> 'Vælg en afskrivningstype',
     'select_location'		=> 'Vælg en placering',
@@ -292,6 +297,7 @@ return [
     'user'					=> 'Bruger',
     'accepted'			    => 'accepteret',
     'declined'			    => 'faldt',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Utildelt',
     'unaccepted_asset_report' => 'Uaccepterede aktiver',
     'users'                 => 'Brugere',
@@ -310,6 +316,10 @@ return [
     'token_expired'         => 'Din form session er udløbet. Prøv igen.',
     'login_enabled'         => 'Login aktiveret',
     'audit_due'             => 'Forfalder til tilsyn',
+    'audit_due_days'        => 'Aktiver som er forfaldne for revision inden :days Dagsaktiver forfaldne for revision inden :days Dage',
+    'checkin_due'           => 'Forfalder til Checkin',
+    'checkin_overdue'       => 'Forfaldne til tjek',
+    'checkin_due_days'      => 'Aktiver forfalden for tjek inden :days Dagsaktiver forfalden for tjek inden :days Dage',
     'audit_overdue'         => 'Forfalden til tilsyn',
     'accept'                => 'Accepter :asset',
     'i_accept'              => 'Jeg accepterer',
@@ -505,6 +515,9 @@ return [
     'or' => 'eller',
     'url'                   => 'URL',
     'edit_fieldset' => 'Rediger feltsæt felter og indstillinger',
+    'permission_denied_superuser_demo' => 'Tilladelse nægtet. Du kan ikke opdatere brugerinformation for superadmins på demoen.',
+    'pwd_reset_not_sent' => 'Brugeren er ikke aktiveret, er LDAP-synkroniseret, eller har ikke en e-mailadresse',
+    'error_sending_email' => 'Fejl ved afsendelse af e-mail',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'Der er ingen requestable aktiver eller asset-modeller.',
+
+    'countable' => [
+        'accessories'  => ':count Tilbehør:count Tilbehør',
+        'assets'  => ':count Aktiver:count Aktiver',
+        'licenses'  => ':count Licens :count Licenser',
+        'license_seats'  => ':count Licenssæde:count Licenssæder',
+        'consumables'  => ':count Forbrugsparti:count Forbrugsvarer',
+        'components'  => ':count Komponent:count Komponenter',
+    ]
 
 ];
