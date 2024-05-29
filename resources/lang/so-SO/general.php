@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Agabka',
     'activated'			    => 'Hawl galiyay',
     'accepted_date'         => 'Taariikhda la aqbalay',
@@ -175,7 +176,7 @@ return [
     'last_name'             => 'Magaca dambe',
     'license'				=> 'Shatiga',
     'license_report'        => 'Warbixinta Shatiga',
-    'licenses_available'	=> 'shatiyada la heli karo',
+    'licenses_available'	=> 'Licenses available',
     'licenses'				=> 'Shatiyada',
     'list_all'				=> 'Liiska oo dhan',
     'loading'				=> 'Soodejinaya...fadlan sug....',
@@ -201,6 +202,8 @@ return [
     'new_password'          => 'Furaha cusub',
     'next'					=> 'Xiga',
     'next_audit_date'		=> 'Taariikhda Hantidhawrka Xiga',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
     'no_email'              => 'No email address associated with this user',
     'last_audit'		    => 'Hantidhawrka u dambeeyay',
     'new'					=> 'cusub!',
@@ -244,6 +247,7 @@ return [
     'select_all'            => 'Dhammaan dooro',
     'search'				=> 'Raadi',
     'select_category'       => 'Dooro Qayb',
+    'select_datasource' => 'Select a Datasource',
     'select_department'     => 'Dooro Waax',
     'select_depreciation'	=> 'Dooro Nooca Qiima-dhaca',
     'select_location'		=> 'Dooro Goob',
@@ -293,6 +297,7 @@ return [
     'user'					=> 'Isticmaale',
     'accepted'			    => 'aqbalay',
     'declined'			    => 'diiday',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Aan la magacaabin',
     'unaccepted_asset_report' => 'Hanti Aan La aqbalin',
     'users'                 => 'Isticmaalayaasha',
@@ -311,6 +316,10 @@ return [
     'token_expired'         => 'Fadhiga foomku wuu dhacay Fadlan isku day mar kale',
     'login_enabled'         => 'Login waa la dajiyay',
     'audit_due'             => 'Hanti-dhawrka awgeed',
+    'audit_due_days'        => 'Assets Due for Audit Within :days Day|Assets Due for Audit Within :days Days',
+    'checkin_due'           => 'Due for Checkin',
+    'checkin_overdue'       => 'Overdue for Checkin',
+    'checkin_due_days'      => 'Assets Due for Checkin Within :days Day|Assets Due for Checkin Within :days Days',
     'audit_overdue'         => 'Dib u dhac ku yimid Hanti-dhawrka',
     'accept'                => 'Aqbal :asset',
     'i_accept'              => 'Waan aqbalay',
@@ -505,6 +514,9 @@ return [
     'or' => 'or',
     'url'                   => 'URL',
     'edit_fieldset' => 'Edit fieldset fields and options',
+    'permission_denied_superuser_demo' => 'Permission denied. You cannot update user information for superadmins on the demo.',
+    'pwd_reset_not_sent' => 'User is not activated, is LDAP synced, or does not have an email address',
+    'error_sending_email' => 'Error sending email',
     'bulk' => [
             'delete' =>
                 [
@@ -517,5 +529,14 @@ return [
              ],
     ],
     'no_requestable' => 'There are no requestable assets or asset models.',
+
+    'countable' => [
+        'accessories'  => ':count Accessory|:count Accessories',
+        'assets'  => ':count Asset|:count Assets',
+        'licenses'  => ':count License|:count Licenses',
+        'license_seats'  => ':count License Seat|:count License Seats',
+        'consumables'  => ':count Consumable|:count Consumables',
+        'components'  => ':count Component|:count Components',
+    ]
 
 ];

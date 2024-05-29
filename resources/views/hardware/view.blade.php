@@ -19,6 +19,23 @@
             </div>
         @endif
 
+        @if ($asset->checkInvalidNextAuditDate())
+            <div class="col-md-12">
+                <div class="callout callout-warning">
+                    <p><strong>{{ trans('general.warning',
+                        [
+                            'warning' => trans('admin/hardware/message.warning_audit_date_mismatch',
+                                    [
+                                        'last_audit_date' => Helper::getFormattedDateObject($asset->last_audit_date, 'date', false),
+                                        'next_audit_date' => Helper::getFormattedDateObject($asset->next_audit_date, 'date', false)
+                                    ]
+                                    )
+                        ]
+                        ) }}</strong></p>
+                </div>
+            </div>
+        @endif
+
         @if ($asset->deleted_at!='')
             <div class="col-md-12">
                 <div class="alert alert-danger">
@@ -30,8 +47,6 @@
         @endif
 
         <div class="col-md-12">
-
-
 
 
             <!-- Custom Tabs -->
@@ -53,7 +68,7 @@
                             <i class="far fa-save fa-2x" aria-hidden="true"></i>
                           </span>
                           <span class="hidden-xs hidden-sm">{{ trans('general.licenses') }}
-                            {!! ($asset->licenses->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->licenses->count()).'</badge>' : '' !!}
+                            {!! ($asset->licenses->count() > 0 ) ? '<span class="badge badge-secondary">'.number_format($asset->licenses->count()).'</span>' : '' !!}
                           </span>
                         </a>
                     </li>
@@ -64,7 +79,7 @@
                             <i class="far fa-hdd fa-2x" aria-hidden="true"></i>
                           </span>
                           <span class="hidden-xs hidden-sm">{{ trans('general.components') }}
-                            {!! ($asset->components->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->components->count()).'</badge>' : '' !!}
+                            {!! ($asset->components->count() > 0 ) ? '<span class="badge badge-secondary">'.number_format($asset->components->count()).'</span>' : '' !!}
                           </span>
                         </a>
                     </li>
@@ -75,7 +90,7 @@
                             <i class="fas fa-barcode fa-2x" aria-hidden="true"></i>
                           </span>
                           <span class="hidden-xs hidden-sm">{{ trans('general.assets') }}
-                            {!! ($asset->assignedAssets()->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->assignedAssets()->count()).'</badge>' : '' !!}
+                            {!! ($asset->assignedAssets()->count() > 0 ) ? '<span class="badge badge-secondary">'.number_format($asset->assignedAssets()->count()).'</span>' : '' !!}
 
                           </span>
                         </a>
@@ -98,7 +113,7 @@
                             <i class="fas fa-wrench fa-2x" aria-hidden="true"></i>
                           </span>
                           <span class="hidden-xs hidden-sm">{{ trans('general.maintenances') }}
-                            {!! ($asset->assetmaintenances()->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->assetmaintenances()->count()).'</badge>' : '' !!}
+                            {!! ($asset->assetmaintenances()->count() > 0 ) ? '<span class="badge badge-secondary">'.number_format($asset->assetmaintenances()->count()).'</span>' : '' !!}
                           </span>
                         </a>
                     </li>
@@ -109,7 +124,7 @@
                             <i class="far fa-file fa-2x" aria-hidden="true"></i>
                           </span>
                           <span class="hidden-xs hidden-sm">{{ trans('general.files') }}
-                            {!! ($asset->uploads->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->uploads->count()).'</badge>' : '' !!}
+                            {!! ($asset->uploads->count() > 0 ) ? '<span class="badge badge-secondary">'.number_format($asset->uploads->count()).'</span>' : '' !!}
                           </span>
                         </a>
                     </li>
@@ -121,7 +136,7 @@
                           </span>
                         <span class="hidden-xs hidden-sm">
                             {{ trans('general.additional_files') }}
-                            {!! ($asset->model) && ($asset->model->uploads->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($asset->model->uploads->count()).'</badge>' : '' !!}
+                            {!! ($asset->model) && ($asset->model->uploads->count() > 0 ) ? '<span class="badge badge-secondary">'.number_format($asset->model->uploads->count()).'</span>' : '' !!}
                           </span>
                     </a>
                     </li>
@@ -140,6 +155,7 @@
                 </ul>
 
                 <div class="tab-content">
+
                     <div class="tab-pane fade in active" id="details">
                         <div class="row">
                             <div class="col-md-8">
@@ -238,7 +254,8 @@
                                                 </strong>
                                             </div>
                                             <div class="col-md-6">
-                                                {{ \App\Helpers\Helper::getFormattedDateObject($audit_log->created_at, 'date', false) }}
+                                                {!! $asset->checkInvalidNextAuditDate() ? '<i class="fas fa-exclamation-triangle text-orange" aria-hidden="true"></i>' : '' !!}
+                                                {{ Helper::getFormattedDateObject($audit_log->created_at, 'date', false) }}
                                                 @if ($audit_log->user)
                                                     (by {{ link_to_route('users.show', $audit_log->user->present()->fullname(), [$audit_log->user->id]) }})
                                                 @endif
@@ -255,6 +272,7 @@
                                                 </strong>
                                             </div>
                                             <div class="col-md-6">
+                                                {!! $asset->checkInvalidNextAuditDate() ? '<i class="fas fa-exclamation-triangle text-orange" aria-hidden="true"></i>' : '' !!}
                                                 {{ Helper::getFormattedDateObject($asset->next_audit_date, 'date', false) }}
                                             </div>
                                         </div>
@@ -415,19 +433,24 @@
 
                                                     @if ($field->isFieldDecryptable($asset->{$field->db_column_name()} ))
                                                         @can('assets.view.encrypted_custom_fields')
-                                                            <span id="text-{{ $field->id }}-to-hide">********</span>
-                                                            <span class="js-copy-{{ $field->id }}" id="text-{{ $field->id }}-to-show" style="font-size: 0px;">
-                                                            @if (($field->format=='URL') && ($asset->{$field->db_column_name()}!=''))
-                                                                <a href="{{ Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()}) }}" target="_new">{{ Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()}) }}</a>
-                                                            @elseif (($field->format=='DATE') && ($asset->{$field->db_column_name()}!=''))
-                                                                {{ \App\Helpers\Helper::gracefulDecrypt($field, \App\Helpers\Helper::getFormattedDateObject($asset->{$field->db_column_name()}, 'date', false)) }}
-                                                            @else
-                                                                {{ Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()}) }}
-                                                            @endif
-                                                            </span>
-                                                            <i class="fa-regular fa-clipboard js-copy-link" data-clipboard-target=".js-copy-{{ $field->id }}" aria-hidden="true" data-tooltip="true" data-placement="top" title="{{ trans('general.copy_to_clipboard') }}">
-                                                                <span class="sr-only">{{ trans('general.copy_to_clipboard') }}</span>
-                                                            </i>
+                                                            @php
+                                                                $fieldSize=strlen(Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()})) 
+                                                            @endphp
+                                                            @if ($fieldSize>0)
+                                                                <span id="text-{{ $field->id }}-to-hide">{{ str_repeat('*', $fieldSize) }}</span>
+                                                                <span class="js-copy-{{ $field->id }}" id="text-{{ $field->id }}-to-show" style="font-size: 0px;">
+                                                                @if (($field->format=='URL') && ($asset->{$field->db_column_name()}!=''))
+                                                                    <a href="{{ Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()}) }}" target="_new">{{ Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()}) }}</a>
+                                                                @elseif (($field->format=='DATE') && ($asset->{$field->db_column_name()}!=''))
+                                                                    {{ \App\Helpers\Helper::gracefulDecrypt($field, \App\Helpers\Helper::getFormattedDateObject($asset->{$field->db_column_name()}, 'date', false)) }}
+                                                                @else
+                                                                    {{ Helper::gracefulDecrypt($field, $asset->{$field->db_column_name()}) }}
+                                                                @endif
+                                                                </span>
+                                                                <i class="fa-regular fa-clipboard js-copy-link" data-clipboard-target=".js-copy-{{ $field->id }}" aria-hidden="true" data-tooltip="true" data-placement="top" title="{{ trans('general.copy_to_clipboard') }}">
+                                                                    <span class="sr-only">{{ trans('general.copy_to_clipboard') }}</span>
+                                                                </i>
+							    @endif
                                                         @else
                                                             {{ strtoupper(trans('admin/custom_fields/general.encrypted')) }}
                                                         @endcan
@@ -781,6 +804,18 @@
                                             </div>
                                         </div>
                                      @endif
+                                     @if ($asset->last_checkin!='')
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <strong>
+                                                        {{ trans('admin/hardware/table.last_checkin_date') }}
+                                                    </strong>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    {{ Helper::getFormattedDateObject($asset->last_checkin, 'datetime', false) }}
+                                                </div>
+                                            </div>
+                                     @endif
 
 
 
@@ -914,6 +949,7 @@
                                                     <button class="btn btn-sm btn-warning col-md-12">{{ trans('general.restore') }}</button>
                                                 </form>
                                            @endif
+                                        </div>
                                     @endcan
 
                                 @if (($asset->assignedTo) && ($asset->deleted_at==''))
@@ -983,7 +1019,7 @@
                             </div> <!-- div.col-md-4 -->
                         </div><!-- /row -->
                     </div><!-- /.tab-pane asset details -->
-                    </div>
+                 
 
                     <div class="tab-pane fade" id="software">
                         <div class="row">

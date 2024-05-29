@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => 'Ponastavi 2FA',
     'accessories'			=> 'Dodatki',
     'activated'			    => 'Aktiviran',
     'accepted_date'         => 'Date Accepted',
@@ -12,7 +13,7 @@ return [
     'admin'					=> 'Administrator',
     'administrator'			=> 'Skrbnik',
     'add_seats'             => 'Dodani sedeži',
-    'age'                   => "Age",
+    'age'                   => "Starost",
     'all_assets'			=> 'Vsa sredstva',
     'all'       			=> 'Vse',
     'archived'              => 'Arhivirano',
@@ -22,7 +23,7 @@ return [
     'asset_report'          => 'Poročilo o sredstvih',
     'asset_tag'				=> 'Oznaka sredstva',
     'asset_tags'            => 'Asset Tags',
-    'assets_available'		=> 'Assets available',
+    'assets_available'		=> 'Razpoložljiva sredstva',
     'accept_assets'         => 'Accept Assets :name',
     'accept_assets_menu'    => 'Accept Assets',
     'audit'				    => 'Revizija',
@@ -31,7 +32,7 @@ return [
     'assets_audited'        => 'assets audited',
     'assets_checked_in_count'     => 'assets checked in',
     'assets_checked_out_count'     => 'assets checked out',
-    'asset_deleted_warning'     => 'This asset has been deleted. You must restore it before you can assign it to someone.',
+    'asset_deleted_warning'     => 'To sredstvo je bilo izbrisano. Pred ponovno uporabo ga morate obnoviti.',
     'assigned_date'         => 'Date Assigned',
     'assigned_to'           => 'Assigned to :name',
     'assignee'              => 'Assigned to',
@@ -113,7 +114,7 @@ return [
     'email_format'			=> 'Format e-pošte',
     'employee_number'       => 'Employee Number',
     'email_domain_help'		=> 'To se uporablja za ustvarjanje e-poštnih naslovov pri uvozu',
-    'error'				    => 'Error',
+    'error'				    => 'Napaka',
     'exclude_archived'      => 'Exclude Archived Assets',
     'exclude_deleted'       => 'Exclude Deleted Assets',
     'example'				=> 'Example: ',
@@ -176,7 +177,7 @@ return [
     'last_name'             => 'Priimek',
     'license'				=> 'Licenca',
     'license_report'        => 'Poročilo o licenci',
-    'licenses_available'	=> 'licenc na voljo',
+    'licenses_available'	=> 'Licenses available',
     'licenses'				=> 'Licence',
     'list_all'				=> 'Seznam vseh',
     'loading'				=> 'Loading... please wait....',
@@ -202,6 +203,8 @@ return [
     'new_password'          => 'New Password',
     'next'					=> 'Naprej',
     'next_audit_date'		=> 'Naslednji datum revizije',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
     'no_email'              => 'No email address associated with this user',
     'last_audit'		    => 'Zadnja revizija',
     'new'					=> 'novo!',
@@ -245,6 +248,7 @@ return [
     'select_all'            => 'Select All',
     'search'				=> 'Iskanje',
     'select_category'       => 'Izberite kategorijo',
+    'select_datasource' => 'Select a Datasource',
     'select_department'     => 'Izberite oddelek',
     'select_depreciation'	=> 'Izberite vrsto amortizacije',
     'select_location'		=> 'Izberite lokacijo',
@@ -294,6 +298,7 @@ return [
     'user'					=> 'Uporabnik',
     'accepted'			    => 'sprejeto',
     'declined'			    => 'zavrnjeno',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Unassigned',
     'unaccepted_asset_report' => 'Nesprejeta sredstva',
     'users'                 => 'Uporabniki',
@@ -312,6 +317,10 @@ return [
     'token_expired'         => 'Vaša seja je potekla. Prosimo, poizkusite ponovno.',
     'login_enabled'         => 'Prijava omogočena',
     'audit_due'             => 'Za revizijo',
+    'audit_due_days'        => 'Assets Due for Audit Within :days Day|Assets Due for Audit Within :days Days',
+    'checkin_due'           => 'Due for Checkin',
+    'checkin_overdue'       => 'Overdue for Checkin',
+    'checkin_due_days'      => 'Assets Due for Checkin Within :days Day|Assets Due for Checkin Within :days Days',
     'audit_overdue'         => 'Zamuda za revizijo',
     'accept'                => 'Sprejmi :asset',
     'i_accept'              => 'Sprejmem',
@@ -375,7 +384,7 @@ return [
     'consumables_count'     => 'Consumables Count',
     'components_count'      => 'Components Count',
     'licenses_count'        => 'Licenses Count',
-    'notification_error'    => 'Error',
+    'notification_error'    => 'Napaka',
     'notification_error_hint' => 'Please check the form below for errors',
     'notification_bulk_error_hint' => 'The following fields had validation errors and were not edited:',
     'notification_success'  => 'Success',
@@ -507,6 +516,9 @@ return [
     'or' => 'or',
     'url'                   => 'URL',
     'edit_fieldset' => 'Edit fieldset fields and options',
+    'permission_denied_superuser_demo' => 'Permission denied. You cannot update user information for superadmins on the demo.',
+    'pwd_reset_not_sent' => 'User is not activated, is LDAP synced, or does not have an email address',
+    'error_sending_email' => 'Error sending email',
     'bulk' => [
             'delete' =>
                 [
@@ -519,5 +531,14 @@ return [
              ],
     ],
     'no_requestable' => 'There are no requestable assets or asset models.',
+
+    'countable' => [
+        'accessories'  => ':count Accessory|:count Accessories',
+        'assets'  => ':count Asset|:count Assets',
+        'licenses'  => ':count License|:count Licenses',
+        'license_seats'  => ':count License Seat|:count License Seats',
+        'consumables'  => ':count Consumable|:count Consumables',
+        'components'  => ':count Component|:count Components',
+    ]
 
 ];

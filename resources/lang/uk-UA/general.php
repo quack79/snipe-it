@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Аксесуари',
     'activated'			    => 'Активоване',
     'accepted_date'         => 'Дата прийняття',
@@ -175,7 +176,7 @@ return [
     'last_name'             => 'Прізвище',
     'license'				=> 'Ліцензія',
     'license_report'        => 'Звіт про ліцензії',
-    'licenses_available'	=> 'доступні ліцензії',
+    'licenses_available'	=> 'Можливі ліцензії',
     'licenses'				=> 'Ліцензії',
     'list_all'				=> 'Список всіх',
     'loading'				=> 'Завантаження... Будь ласка, зачекайте...',
@@ -201,6 +202,8 @@ return [
     'new_password'          => 'Новий пароль',
     'next'					=> 'Далі',
     'next_audit_date'		=> 'Дата наступного аудиту',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
     'no_email'              => 'Немає адреси електронної пошти, пов\'язаної з цим користувачем',
     'last_audit'		    => 'Останній аудит',
     'new'					=> 'нове!',
@@ -244,6 +247,7 @@ return [
     'select_all'            => 'Виділити все',
     'search'				=> 'Пошук',
     'select_category'       => 'Оберіть категорію',
+    'select_datasource' => 'Вибір джерела даних',
     'select_department'     => 'Оберіть відділ',
     'select_depreciation'	=> 'Оберіть тип амортизації',
     'select_location'		=> 'Оберіть розташування',
@@ -293,6 +297,7 @@ return [
     'user'					=> 'Користувач',
     'accepted'			    => 'прийнято',
     'declined'			    => 'відхилено',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Непризначений',
     'unaccepted_asset_report' => 'Неприйняті активи',
     'users'                 => 'Користувачі',
@@ -311,6 +316,10 @@ return [
     'token_expired'         => 'Ваша login-сесія закінчилась. Будь ласка, увійдіть в систему знову.',
     'login_enabled'         => 'Вхід дозволено',
     'audit_due'             => 'Належно від аудиту',
+    'audit_due_days'        => 'Збитки в призначенні для аудиту протягом :days |Активи в строку аудиту протягом :days',
+    'checkin_due'           => 'Одержувач входу',
+    'checkin_overdue'       => 'Прострочено для входу',
+    'checkin_due_days'      => 'Залежні Активи для оформлення протягом :days Дня|Активів в рамках :days днів',
     'audit_overdue'         => 'Прострочені для аудиту',
     'accept'                => 'Прийняти :asset',
     'i_accept'              => 'Я приймаю',
@@ -506,6 +515,9 @@ return [
     'or' => 'або',
     'url'                   => 'URL',
     'edit_fieldset' => 'Редагування полів і параметрів польових налаштувань',
+    'permission_denied_superuser_demo' => 'У доступі відмовлено. Ви не можете оновити інформацію про користувача для суперадміністраторів на демо.',
+    'pwd_reset_not_sent' => 'Користувач не активований, він синхронізується або не має електронної адреси',
+    'error_sending_email' => 'Помилка при відправці електронної пошти',
     'bulk' => [
             'delete' =>
                 [
@@ -518,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'Немає запитуваних активів або моделей активів.',
+
+    'countable' => [
+        'accessories'  => ':count аксесуара|:count аксесуарів',
+        'assets'  => ':count есе|:count Активів',
+        'licenses'  => ':count ліцензія|:count ліцензій',
+        'license_seats'  => ':count реалізація|:count місця для ліцензії',
+        'consumables'  => ':count витратно|:count витратних товарів',
+        'components'  => ':count компонент|:count компонентів',
+    ]
 
 ];

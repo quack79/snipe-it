@@ -1,6 +1,7 @@
 <?php
 
 return [
+    '2FA_reset'             => '2FA reset',
     'accessories'			=> 'Accesorii',
     'activated'			    => 'activat',
     'accepted_date'         => 'Data acceptării',
@@ -175,7 +176,7 @@ return [
     'last_name'             => 'Nume',
     'license'				=> 'Licenta',
     'license_report'        => 'Raport licente',
-    'licenses_available'	=> 'Licente disponibile',
+    'licenses_available'	=> 'Licențe disponibile',
     'licenses'				=> 'Licente',
     'list_all'				=> 'Arata tot',
     'loading'				=> 'Încărcare... vă rugăm așteptați....',
@@ -201,6 +202,8 @@ return [
     'new_password'          => 'Parolă nouă',
     'next'					=> 'Următor →',
     'next_audit_date'		=> 'Data următoarei auditări',
+    'next_audit_date_help'  => 'If you use auditing in your organization, this is usually automatically calculated based on the asset&apos;s last audit date and audit frequency (in <code>Admin Settings &gt; Alerts</code>) and you can leave this blank. You can manually set this date here if you need to, but it must be later than the last audit date. ',
+    'audit_images_help'     => 'You can find audit images in the asset\'s history tab.',
     'no_email'              => 'Nicio adresă de e-mail asociată cu acest utilizator',
     'last_audit'		    => 'Ultimul audit',
     'new'					=> 'nou!',
@@ -244,6 +247,7 @@ return [
     'select_all'            => 'Selectează tot',
     'search'				=> 'Căutare',
     'select_category'       => 'Selectați o categorie',
+    'select_datasource' => 'Selectează o bază de date',
     'select_department'     => 'Selectați un departament',
     'select_depreciation'	=> 'Selectați un tip de amortizare',
     'select_location'		=> 'Selectați o locație',
@@ -293,6 +297,7 @@ return [
     'user'					=> 'Utilizator',
     'accepted'			    => 'acceptat',
     'declined'			    => 'respins',
+    'declined_note'         => 'Declined Notes',
     'unassigned'            => 'Neatribuit',
     'unaccepted_asset_report' => 'Produse neacceptate',
     'users'                 => 'Utilizatori',
@@ -311,6 +316,10 @@ return [
     'token_expired'         => 'Sesiunea de formular a expirat. Vă rugăm să încercați din nou.',
     'login_enabled'         => 'Autentificare activată',
     'audit_due'             => 'De auditat',
+    'audit_due_days'        => 'Activele scadente pentru audit în termen de :days Active datorate pentru audit în următoarele zile',
+    'checkin_due'           => 'De finalizat pentru Checkin',
+    'checkin_overdue'       => 'Restabilit pentru Checkin',
+    'checkin_due_days'      => 'Activele scadente pentru verificare în termen de :days Active de ziua De finalizat pentru Verificare în următoarele zile',
     'audit_overdue'         => 'Audit întârziat',
     'accept'                => 'Acceptă :asset',
     'i_accept'              => 'Accept',
@@ -506,6 +515,9 @@ return [
     'or' => 'sau',
     'url'                   => 'URL-',
     'edit_fieldset' => 'Editați câmpurile și opțiunile setului de câmp',
+    'permission_denied_superuser_demo' => 'Permisiune refuzată. Nu puteți actualiza informațiile utilizatorului pentru superadminii de pe demo.',
+    'pwd_reset_not_sent' => 'Utilizatorul nu este activat, este LDAP sincronizat sau nu are o adresă de e-mail',
+    'error_sending_email' => 'Eroare trimitere e-mail',
     'bulk' => [
             'delete' =>
                 [
@@ -518,5 +530,14 @@ return [
              ],
     ],
     'no_requestable' => 'Nu există active sau modele de active solicitate.',
+
+    'countable' => [
+        'accessories'  => ':count Accesorii:count Accesorii',
+        'assets'  => ':count Active|:count Active',
+        'licenses'  => ':count Licență:count Licențe',
+        'license_seats'  => ':count Locul de licență:count Locuri de licență',
+        'consumables'  => ':count Consumabile|:count Consumabile',
+        'components'  => ':count Component|:count Componente',
+    ]
 
 ];
