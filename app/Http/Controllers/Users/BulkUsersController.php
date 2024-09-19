@@ -118,6 +118,7 @@ class BulkUsersController extends Controller
             ->conditionallyAddItem('activated')
             ->conditionallyAddItem('start_date')
             ->conditionallyAddItem('end_date')
+            ->conditionallyAddItem('city')
             ->conditionallyAddItem('autoassign_licenses');
 
 
@@ -154,6 +155,10 @@ class BulkUsersController extends Controller
 
         if ($request->input('null_end_date')=='1') {
             $this->update_array['end_date'] = null;
+        }
+
+        if ($request->input('null_locale')=='1') {
+            $this->update_array['locale'] = null;
         }
 
         if (! $manager_conflict) {
