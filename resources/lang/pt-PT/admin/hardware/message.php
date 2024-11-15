@@ -2,9 +2,9 @@
 
 return [
 
-    'undeployable' 		=> '<strong>Warning: </strong> This asset has been marked as currently undeployable. If this status has changed, please update the asset status.',
+    'undeployable' 		=> '<strong>Aviso: </strong> Este artigo foi assinalado como "não implementável". Se este estado mudou, por favor atualize o estado do artigo.',
     'does_not_exist' 	=> 'Artigo não existente.',
-    'does_not_exist_var'=> 'Asset with tag :asset_tag not found.',
+    'does_not_exist_var'=> 'Ativo com a tag :asset_tag não encontrado.',
     'no_tag' 	        => 'No asset tag provided.',
     'does_not_exist_or_not_requestable' => 'Esse artigo não existe ou não é solicitável.',
     'assoc_users'	 	=> 'Este artigo está correntemente alocado a um utilizador e não pode ser removido. Por favor devolva o artigo e de seguida tente remover novamente. ',
@@ -14,6 +14,8 @@ return [
         'error'   		=> 'Não foi possível criar o Artigo. Por favor, tente novamente. :(',
         'success' 		=> 'Artigo criado com sucesso. :)',
         'success_linked' => 'O ativo com a tag :tag foi criado com sucesso. <strong><a href=":link" style="color: white;">clique aqui para ver</a></strong>.',
+        'multi_success_linked' => 'Asset with tag :links was created successfully.|:count assets were created succesfully. :links.',
+        'partial_failure' => 'An asset was unable to be created. Reason: :failures|:count assets were unable to be created. Reasons: :failures',
     ],
 
     'update' => [
@@ -77,6 +79,11 @@ return [
         'user_does_not_exist' => 'O utilizador é inválido. Por favor, tente novamente.',
         'not_available' => 'Esse recurso não está disponível para checkout!',
         'no_assets_selected' => 'Deve escolher pelo menos um artigo da lista',
+    ],
+
+    'multi-checkout' => [
+        'error'   => 'Asset was not checked out, please try again|Assets were not checked out, please try again',
+        'success' => 'Asset checked out successfully.|Assets checked out successfully.',
     ],
 
     'checkin' => [

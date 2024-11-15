@@ -7,6 +7,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use \Auth;
 
+/**
+ * @extends Factory<User>
+ */
 class UserFactory extends Factory
 {
     /**
@@ -35,6 +38,7 @@ class UserFactory extends Factory
             'state' => $this->faker->stateAbbr(),
             'username' => $this->faker->unique()->username(),
             'zip' => $this->faker->postcode(),
+            'created_by' => 1,
         ];
     }
 
